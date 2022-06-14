@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'jsonRestApi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+django_heroku.settings(locals())
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
@@ -128,8 +129,6 @@ USE_TZ = True
 
 STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-django_heroku.settings(locals())
 
 
 # Default primary key field type
