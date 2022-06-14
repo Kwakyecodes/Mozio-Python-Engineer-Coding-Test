@@ -2,8 +2,8 @@ from django.contrib.gis.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from phone_field import PhoneField
-from decouple import config
 from django.contrib.gis.geos import Polygon
+import os
 
 
 class Provider(models.Model):
@@ -33,10 +33,10 @@ def auto_create_service_area(instance, **kwargs):
                                 [0, 0]])
     if not service_areas:
         default_service_area = ServiceArea( 
-            name=config('SERVICE_AREA_NAME'), 
-            price=config('SERVICE_AREA_PRICE'),
-            polygon=CUSTOM_POLYGON,
-            provider=instance)
+            name= os.environ.get('SERVICE_AREA_NAME'), 
+            price= os.environ.get('SERVICE_AREA_PRICE'),
+            polygon= CUSTOM_POLYGON,
+            provider= instance)
         
         default_service_area.save()
         
