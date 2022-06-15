@@ -84,7 +84,7 @@ django_heroku.settings(locals())
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.sqlite3',
-        # 'NAME': os.environ.get('DB_NAME'),
+        'NAME': 'mydatabase',
         # 'HOST': os.environ.get('DB_HOST'),
         # 'PORT': '3306',
         # 'USER': os.environ.get('DB_USER'),
