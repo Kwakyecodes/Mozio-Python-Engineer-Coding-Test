@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'jsonRestApi.wsgi.application'
 django_heroku.settings(locals())
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.sqlite3',
-        'NAME': 'mydatabase',
-        # 'HOST': os.environ.get('DB_HOST'),
-        # 'PORT': '3306',
-        # 'USER': os.environ.get('DB_USER'),
-        # 'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'ENGINE': 'django.contrib.gis.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': '3306',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
     }
 }
 
